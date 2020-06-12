@@ -12,6 +12,7 @@
         /* Create three unequal columns that floats next to each other */
     .column {
       float: left;
+        width: 20px;
       padding: 10px; /* Should be removed. Only for demonstration */
     }
     .left {width: 30%}
@@ -44,29 +45,36 @@
 
 
         <div class="row">
+
           <div class="column left" style="background-color:#aaa;">
             <h2>Picture</h2>
+              <br>
             <p>
                 {% if filename %}
 	            <div>
 		        <img src="{{ url_for('display_img', filename=filename) }}">
 	            </div>
-                {% endif %}
+              {% endif %}
+              </p>
           </div>
 
-              <div class="column mid" style="background-color:#aaa;">
+              <div class="column mid" style="background-color:#bbb;">
                 <h2>Output</h2>
+                    <br>
+                  <p>
                     {% if filename %}
-                    <div style="font-family:'Lucida Console', monospace">
-                        <pre>
+                    <div>
+                        <pre style="text-align: center">
                              {{ txt_print }}
                         </pre>
                     </div>
                     {% endif %}
+                  </p>
               </div>
 
-              <div class="column right" style="background-color:#bbb;">
+              <div class="column right" style="background-color:#ccc;">
                 <h2>Comment</h2>
+                  <br>
                        <p>
                         {% with messages = get_flashed_messages() %}
                         {% if messages %}
@@ -80,7 +88,6 @@
                         </p>
               </div>
 
-            </div>
     </div>
 
 {% endblock %}

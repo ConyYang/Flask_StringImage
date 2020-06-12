@@ -1,9 +1,8 @@
 import os
 
-import urllib.request
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
-from inference import *
+from function.inference import *
 
 UPLOAD_FOLDER = 'static/'
 app = Flask(__name__, template_folder='templates')

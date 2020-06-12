@@ -1,8 +1,8 @@
 import requests
 from PIL import Image
 
-input_width = 100
-input_height = 100
+input_width = 50
+input_height = 50
 
 
 ascii_char = list("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ")

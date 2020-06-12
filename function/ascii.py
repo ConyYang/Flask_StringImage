@@ -51,6 +51,6 @@ if __name__ == '__main__':
         with open(output_img_path, 'w') as f:
             f.write(txt)
     else:
-        with open("output.txt", 'w') as f:
+        with open("../output.txt", 'w') as f:
             f.write(txt)
 
