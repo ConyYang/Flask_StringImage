@@ -1,0 +1,85 @@
+
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    * {
+         box-sizing: border-box;
+        }
+    h1 {
+        color: firebrick;
+        text-align: center;
+    }
+        /* Create three unequal columns that floats next to each other */
+    .column {
+      float: left;
+      padding: 10px; /* Should be removed. Only for demonstration */
+    }
+    .left {width: 30%}
+    .mid {width: 52%}
+    .right{width: 18%}
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    img{
+        width: 150px;
+        height: auto;
+    }
+</style>
+
+    <div class = "container">
+        <h1> Beautiful String Photo </h1>
+        <h2> Select an Image to upload </h2>
+
+        <form method="post" action="/" enctype="multipart/form-data">
+            <div class = "form-group">
+                <input type="file" name="file" class="btn btn-default">
+            </div>
+            <div class = "form-group">
+                <input type="submit" value="upload" class="btn btn-default">
+            </div>
+        </form>
+
+
+        <div class="row">
+          <div class="column left" style="background-color:#aaa;">
+            <h2>Picture</h2>
+            <p>
+                {% if filename %}
+	            <div>
+		        <img src="{{ url_for('display_img', filename=filename) }}">
+	            </div>
+                {% endif %}
+          </div>
+
+              <div class="column mid" style="background-color:#aaa;">
+                <h2>Output</h2>
+                <p>
+                    {% if filename %}
+                    <div style="font-family:'Lucida Console', monospace">
+                    {{ txt_print }}
+                    </div>
+                    {% endif %}
+              </div>
+
+              <div class="column right" style="background-color:#bbb;">
+                <h2>Comment</h2>
+                       <p>
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class=flashes>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                         {% endif %}
+                         {% endwith %}
+                        </p>
+              </div>
+
+            </div>
+    </div>
+
+{% endblock %}
