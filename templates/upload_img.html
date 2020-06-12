@@ -56,10 +56,11 @@
 
               <div class="column mid" style="background-color:#aaa;">
                 <h2>Output</h2>
-                <p>
                     {% if filename %}
                     <div style="font-family:'Lucida Console', monospace">
-                    {{ txt_print }}
+                        <pre>
+                             {{ txt_print }}
+                        </pre>
                     </div>
                     {% endif %}
               </div>
